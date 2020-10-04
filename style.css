@@ -9,11 +9,182 @@
     text-decoration: none;
 }
 
+:root{
+    --font-1: "Kufam", serif;
+    --font-2: "Permanent Marker", serif;
+    --font-3:  "Bebas Neue", serif;
+    --font-4: "Architects Daughter", serif;
+}
+
 header{
     width: 100%;
     height: 100vh;
     overflow: hidden;
     position: relative;
+}
+
+.hamburguerD{
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.show-menuD .hamburguerD{
+    right: 90%;
+}
+
+.lineD{
+    width: 100%;
+    height: .1rem;
+    background-color: #fff;
+    box-shadow: 0.1rem 0.1rem 1px #000000;
+    transition: 1s;
+}
+
+.show-menuD #lineD1{
+    transform: rotate(45deg) translate(.35rem, .4rem);
+}
+
+.show-menuD #lineD2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menuD #lineD3{
+    transform: rotate(-45deg) translate(.3rem, -.45rem);
+}
+
+.hamburguerD span{
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #8E2DE2;
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
+    background: linear-gradient(to right, #4A00E0, #8E2DE2);
+    color: #fff;
+    font-family: var(--font-3);
+    opacity: 0;
+}
+
+.show-menuD .hamburguerD:hover span{
+    opacity: 1;
+}
+
+.hamburguerD span::before{
+    content: "";
+    position: absolute;
+    border-right: .5rem solid #4A00E0;
+    border-top: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem;
+}
+
+.painelD{
+    width: 77rem;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: -77rem;
+    transition: all 1s;
+}
+
+.show-menuD .painelD{
+    right: 0;
+}
+
+.hamburguerE{
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    left: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.show-menuE .hamburguerE{
+    left: 90%;
+}
+
+.lineE{
+    width: 100%;
+    height: .1rem;
+    background-color: #fff;
+    box-shadow: 0.1rem 0.1rem 1px #000000;
+    transition: 1s;
+}
+
+.show-menuE #lineE1{
+    transform: rotate(45deg) translate(.35rem, .4rem);
+}
+
+.show-menuE #lineE2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menuE #lineE3{
+    transform: rotate(-45deg) translate(.3rem, -.45rem);
+}
+
+.hamburguerE span{
+    position: absolute;
+    right: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #8E2DE2;
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
+    background: linear-gradient(to right, #4A00E0, #8E2DE2);
+    color: #fff;
+    font-family: var(--font-3);
+    opacity: 0;
+}
+
+.show-menuE .hamburguerE:hover span{
+    opacity: 1;
+}
+
+.hamburguerE span::before{
+    content: "";
+    position: absolute;
+    border-left: .5rem solid #8E2DE2;
+    border-top: .5rem solid transparent;
+    border-right: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    right: -1rem;
+}
+
+.painelE{
+    width: 77rem;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: -77rem;
+    transition: all 1s;
+}
+
+.show-menuE .painelE{
+    left: 0;
 }
 
 .img-wrapper{
@@ -37,5 +208,41 @@ header{
     }
     100%{
         transform: scale(1);
+    }
+}
+
+.banner{
+    position: absolute;
+    left: 25%;
+    top: 15%;
+}
+
+.banner h1{
+    color: navy;
+    font-size: 3.7em;
+    font-family: var(--font-2);
+    font-weight: 200;
+    text-shadow: .3rem .4rem 2px rgba(0, 0, 0, .4);
+    opacity: 0;
+    animation: moveBanner .5s forwards;
+}
+
+.banner p{
+    font-family: var(--font-2);
+    color: darkblue;
+    font-size: 2.3rem;
+    text-shadow: .2rem .2rem rgba(0, 0, 0, .4);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: moveBanner .7s forwards;
+}
+
+@keyframes moveBanner{
+    0%{
+        transform: translateY(10rem);
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 100;
     }
 }
